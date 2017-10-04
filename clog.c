@@ -38,7 +38,11 @@ int main(int argc, char **argv) {
 			loglevel = buf[31];
 		else if ((strlen(buf) > 20) && (buf[18] == ' ') && (buf[20] == '/')) // logcat -v time
 			loglevel = buf[19];
-// 		printf ("20=%c 21=%c 22=%c 23=%c\n", buf[20], buf[21], buf[22], buf[23]);
+		else if ((strlen(buf) > 8) && (buf[1] == '(') && (buf[7] == ')') && (buf[8] == ' ')) // logcat -v process
+			loglevel = buf[0];
+		else if ((strlen(buf) > 15) && (buf[1] == '(') && (buf[7] == ':') && (buf[13] == ')') && (buf[14] == ' ')) // logcat -v thread
+			loglevel = buf[0];
+
 		switch(loglevel) {
 			case 'F': color = red; break;
 			case 'E': color = lightred; break;
