@@ -32,11 +32,11 @@ int main(int argc, char **argv) {
 
 	while (fgets((char*)&buf, (int)sizeof(buf), infile)) {
 		char loglevel = '\0';
-		if ((strlen(buf) > 2) && (buf[1] == '/'))
+		if ((strlen(buf) > 2) && (buf[1] == '/')) // logcat -v brief; logcat -v tag
 			loglevel = buf[0];
-		else if ((strlen(buf) > 32) && (buf[30] == ' ') && (buf[32] == ' '))
+		else if ((strlen(buf) > 32) && (buf[30] == ' ') && (buf[32] == ' ')) // logcat -v threadtime
 			loglevel = buf[31];
-		else if ((strlen(buf) > 20) && (buf[18] == ' ') && (buf[20] == '/'))
+		else if ((strlen(buf) > 20) && (buf[18] == ' ') && (buf[20] == '/')) // logcat -v time
 			loglevel = buf[19];
 // 		printf ("20=%c 21=%c 22=%c 23=%c\n", buf[20], buf[21], buf[22], buf[23]);
 		switch(loglevel) {
