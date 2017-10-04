@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
 
 	while (fgets((char*)&buf, (int)sizeof(buf), infile)) {
 		char loglevel = '\0';
-		if (buf[1] == '/')
+		if ((strlen(buf) > 2) && (buf[1] == '/'))
 			loglevel = buf[0];
 		else if ((strlen(buf) > 32) && (buf[30] == ' ') && (buf[32] == ' '))
 			loglevel = buf[31];
