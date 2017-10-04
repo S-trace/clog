@@ -1,4 +1,4 @@
-clog - android log colorizer
+clog - android logcat and dmesg logs colorizer
 
 
 Build:
@@ -12,3 +12,4 @@ clog file.log
 
 adb logcat | clog
 
+adb shell su root dmesg | clog
