@@ -42,6 +42,8 @@ int main(int argc, char **argv) {
 			loglevel = buf[0];
 		else if ((strlen(buf) > 15) && (buf[1] == '(') && (buf[7] == ':') && (buf[13] == ')') && (buf[14] == ' ')) // logcat -v thread
 			loglevel = buf[0];
+                else if ((strlen(buf) > 22) && (buf[18] == ':') && (buf[19] == ' ') && (buf[21] == '/') ) // OnePlus One logcat
+                    loglevel = buf[20];
 		else if ((strlen(buf) > 4) && (buf[0] == '<') && (buf[2] == '>') && (buf[3] == '[') ) { // dmesg, part 1: loglevels 0..7
 			switch(buf[1]) { // Map kernel log levels to android log levels: https://elinux.org/Debugging_by_printing
 				case '0': loglevel = 'F'; break;
