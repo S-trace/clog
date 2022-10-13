@@ -1,15 +1,13 @@
 clog - android logcat and dmesg logs colorizer
 
-
 Build:
 
-make
-
+* make
 
 Usage:
 
-clog file.log
+* clog file.log
+* adb logcat | clog
+* adb shell su root dmesg | clog
 
-adb logcat | clog
-
-adb shell su root dmesg | clog
+License: GPLv3
